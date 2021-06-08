@@ -66,6 +66,7 @@ namespace eka2l1::mem {
 
             // Commit the memory to the host
             if (!is_external_host && !common::commit(host_commit_ptr, host_commit_size, permission_)) {
+                LOG_ERROR(KERNEL, "Fail to commit real memory with size {}", host_commit_size);
                 return running_offset - offset;
             }
 
